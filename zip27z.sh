@@ -18,5 +18,5 @@ for fileName in $zipList; do
 done
 
 echo
-echo "Convertion completed"
+echo "Convertion complete."
 echo
