@@ -7,10 +7,10 @@ if [ $(id -u) != "0" ]; then
 fi
 
 # Check parameters
-if [ $# != "0" ]; then
+if [ "$#" != "0" ]; then
   parameterList=""
   for parameter in $*; do
-    if [ parameterList == "" ]; then
+    if [ "$parameterList" == "" ]; then
       arameterList=parameter
     else
       parameterList="$parameterList $parameter"

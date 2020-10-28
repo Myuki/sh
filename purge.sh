@@ -12,7 +12,7 @@ if [ $(id -u) != "0" ]; then
 fi
 
 # Check if have input
-if [ $# == 0 ]; then
+if [ "$#" == "0" ]; then
   echo "Error: No input"
   echo "These packages have some remain file: "
   dpkg --list | grep "^rc" | cut -d " " -f 3
@@ -21,19 +21,18 @@ fi
 
 # Purge packages
 for package in $*; do
-  apt purge $package && \
-  dpkg -l | grep ^rc | awk '{print $2}' | xargs dpkg -P $package
-  if [ $? -eq 0 ]; then
-    if [ "$removePackageList" != "" ]; then
-      removePackageList="$removePackageList, $package"
-    else
+  apt purge $package && dpkg -l | grep ^rc | awk '{print $2}' | xargs dpkg -P $package
+  if [ "$?" == "0" ]; then
+    if [ "$removePackageList" == "" ]; then
       removePackageList="$package"
+    else
+      removePackageList="$removePackageList, $package"
     fi
   else
-    if [ "$notRemovePackageList" != "" ]; then
-      notRemovePackageList="$notRemovePackageList, $package"
-    else
+    if [ "$notRemovePackageList" == "" ]; then
       notRemovePackageList="$package"
+    else
+      notRemovePackageList="$notRemovePackageList, $package"
     fi
   fi
 done
