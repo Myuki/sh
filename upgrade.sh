@@ -11,7 +11,7 @@ if [ "$#" != "0" ]; then
   parameterList=""
   for parameter in $*; do
     if [ "$parameterList" == "" ]; then
-      arameterList=parameter
+      parameterList="$parameter"
     else
       parameterList="$parameterList $parameter"
     fi
