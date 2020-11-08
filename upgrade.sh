@@ -18,9 +18,9 @@ if [ "$#" != "0" ]; then
   done
 fi
 
-apt-get update
+apt-get update > /dev/null
 apt-get dist-upgrade $parameterList
-apt-get autoremove -y
+apt-get autoremove -y > /dev/null
 apt-get clean
 echo "~~~~~~~~~ $(date) ~~~~~~~~~"
 echo
