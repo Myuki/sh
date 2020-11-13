@@ -18,6 +18,7 @@ if [ "$#" != "0" ]; then
   done
 fi
 
+echo "Update package lists..."
 apt-get update > /dev/null
 apt-get dist-upgrade $parameterList
 apt-get autoremove -y > /dev/null
