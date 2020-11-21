@@ -16,5 +16,5 @@ for dirName in $dirList; do
 done
 
 echo
-echo "Compression completed"
+echo "Compression completed."
 echo
