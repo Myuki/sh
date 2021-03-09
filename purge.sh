@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Parameter: package0 package1 package2...
+# Parameter: [package...]
+# Example: purge.sh package0 package1
 
 removePackageList=""
 notRemovePackageList=""

@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 
+# Parameter: [<7z switches>...]
+# Example: zip27z.sh -mx=0 -ms=off -mmt=11
+
 # Dependencies: unar, p7zip
 
-compressionLevel=9
-solid="off"
-thred=11
-
 IFS=$'\n'
-
 zipList=$(ls -1 *.zip)
 
 for fileName in $zipList; do
   unar "$fileName"
   dirName="${fileName%".zip"}"
-  7zr a "./output/${dirName}.7z" "$dirName" -mmt=$thred -mx=$compressionLevel -ms=$solid
+  7zr a $* "./output/${dirName}.7z" "$dirName"
   rm -r "$dirName"
 done
 
