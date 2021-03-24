@@ -16,13 +16,13 @@ fi
 if [ "$#" == "0" ]; then
   echo "Error: No input"
   echo "These packages have some remain file: "
-  dpkg --list | grep "^rc" | cut -d " " -f 3
+  dpkg -l | grep "^rc" | cut -d " " -f 3
   exit 1
 fi
 
 # Purge packages
 for package in $*; do
-  apt purge $package && dpkg -l | grep ^rc | awk '{print $2}' | xargs dpkg -P $package
+  apt purge $package && xargs dpkg -P $package
   if [ "$?" == "0" ]; then
     if [ "$removePackageList" == "" ]; then
       removePackageList="$package"
