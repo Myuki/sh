@@ -1,6 +1,6 @@
 # sh
 
-A personal shell scripts collection. All scripts only test on Debian.
+A personal shell scripts collection. All scripts only develop for Debian.
 
 ## 7zAll.sh
 
@@ -14,7 +14,7 @@ Dependencies: `p7zip`
 
 ## purge.sh
 
-Purge package by `apt`.
+Purge package by use `apt` and `dpkg`.
 
 Parameter: `[package...]`
 
@@ -22,7 +22,7 @@ Example: `purge.sh package0 package1`
 
 ## upgrade.sh
 
-Update packages list and upgrade packages. It also runs `apt-get autoremove -y` and `apt-get clean` at last.
+Update packages index and upgrade packages. It also runs `apt-get autoremove -y` and `apt-get clean` at last.
 
 Parameter: `[<apt-get dist-upgrade options>...]`
 
