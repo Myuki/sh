@@ -22,7 +22,7 @@ fi
 
 # Purge packages
 for package in $*; do
-  apt purge $package && xargs dpkg -P $package
+  apt purge $package && dpkg -l | grep ^rc | awk '{print $2}' | xargs dpkg -P $package
   if [ "$?" == "0" ]; then
     if [ "$removePackageList" == "" ]; then
       removePackageList="$package"
